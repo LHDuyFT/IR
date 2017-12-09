@@ -1,0 +1,18 @@
+//SONY IR PROTOCOL
+
+Features:
+12-bit version, 7 command bits, 5 address bits.
+15-bit version, 7 command bits, 8 address bits.
+20-bit version, 7 command bits, 5 address bits, 8 extended bits.
+Carrier frequency of 40kHz.
+Bit time of 1.2ms or 0.6ms.
+Bit 1 :mart 1.2ms ,space 0.6ms
+Bit 0 :mart 0.6ms ,space 0.6ms
+
+Protocol:(12bit)
+Start: mart 2.4ms,space 0.6ms
+Command(7bit): Bit 1 :mart 1.2ms ,space 0.6ms
+	 Bit 0 :mart 0.6ms ,space 0.6ms
+	 power :21
+Address(5bit):
+	TV: 1

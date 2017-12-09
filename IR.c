@@ -28,7 +28,7 @@ void delay_ms(int t)
 {
     T2CON = 0x8000;
     TMR2 = 0;
-    PR2 = 4000;//4000/4000000
+    PR2 = 400000;//4000/4000000
     while (t--)
     {
         while (TMR2 < PR2);
@@ -57,7 +57,7 @@ void __attribute__((__interrupt__,auto_psv))_T3Interrupt (void)
         OC1CON = 0x0008;
         TMR2 = 0;
         PR2 = 1;
-        IPC1bits.T2IP = 0b011;   //Priority
+        IPC1bits.T2IP = 0b001;   //Priority
         IFS0bits.T2IF = 0;      //Flag
         IEC0bits.T2IE = 1;  
         dem = 0;
@@ -144,6 +144,8 @@ main(void)
                         {
                         case 0:
                             initPWM();
+                            OC1R = 0;
+                            OC1RS = 0;
                             //Giu o che do phat xung 0 den khi du 50 chu ki T2IF = 1 ?ánh d?u k?t thúc thoát kh?i ch? ?? 0
                             while(1)
                             {

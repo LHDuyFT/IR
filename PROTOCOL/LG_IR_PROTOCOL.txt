@@ -1,0 +1,27 @@
+//LG IR PROTOCOL
+
+Features:
+Carrier frequency of 38.222kHz.
+Header:
+	9ms mart,4.5ms space
+Data:
+	8-bit address for the receiving device
+	8-bit logical inverse of the address
+	8-bit command
+	8-bit logical inverse of the command
+Final: 
+	562.5µs mart(the end of message transmission.)
+If:
+	40.5ms space
+	9ms leading mart
+	2.25ms space
+	562.5µs mart(end message)
+	continue:
+	96.1875 space  
+	(If the key on the remote controller is kept depressed--->a repeat code will be issued typically 
+	around 40ms after the pulse burst that signified the end of the message. 
+	A repeat code will continue to be sent out at 108ms intervals, until the key is finally released	
+
+Protocol:
+	Bit 1: mart:562.5us, space:1.6875ms
+	Bit 0: mart:562,5us, space:562.5us
